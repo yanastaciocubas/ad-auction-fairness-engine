@@ -5,25 +5,23 @@ import com.yonara.adauction.model.AdBidEvent;
 import com.yonara.adauction.model.UserProfile;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.springframework.stereotype.Component;
 
 import java.util.Properties;
 import java.util.Random;
 import java.util.UUID;
 
-@Component
 public class AdBidProducer {
 
-    private final ObjectMapper mapper = new ObjectMapper();
-    private final Random random = new Random();
+    private static final ObjectMapper mapper = new ObjectMapper();
+    private static final Random random = new Random();
 
-    private final String[] advertisers = {"nike", "apple", "amazon", "spotify"};
-    private final String[] slots = {"homepage-banner", "sidebar", "feed-card"};
-    private final String[] ageGroups = {"18-34", "35-54", "55+"};
-    private final String[] genders = {"M", "F", "NB"};
-    private final String[] incomeLevels = {"low", "medium", "high"};
+    private static final String[] advertisers = {"nike", "apple", "amazon", "spotify"};
+    private static final String[] slots = {"homepage-banner", "sidebar", "feed-card"};
+    private static final String[] ageGroups = {"18-34", "35-54", "55+"};
+    private static final String[] genders = {"M", "F", "NB"};
+    private static final String[] incomeLevels = {"low", "medium", "high"};
 
-    public void startProducing() throws Exception {
+    public static void main(String[] args) throws Exception {
 
         Properties props = new Properties();
         props.put("bootstrap.servers", "localhost:9092");
