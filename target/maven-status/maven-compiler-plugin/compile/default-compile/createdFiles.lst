@@ -1,0 +1,13 @@
+com/yonara/adauction/repository/AuctionResultRepository.class
+com/yonara/adauction/model/AdBidEvent.class
+com/yonara/adauction/model/FairnessAlert.class
+com/yonara/adauction/producer/AdBidProducer.class
+com/yonara/adauction/model/UserProfile.class
+com/yonara/adauction/repository/FairnessAlertRepository.class
+com/yonara/adauction/fairness/FairnessAlertService.class
+com/yonara/adauction/consumer/PipelineRunner.class
+com/yonara/adauction/model/AuctionResult.class
+com/yonara/adauction/AdAuctionFairnessEngineApplication.class
+com/yonara/adauction/fairness/FairnessAuditor.class
+com/yonara/adauction/api/AnalyticsController.class
+com/yonara/adauction/consumer/AuctionConsumer.class
