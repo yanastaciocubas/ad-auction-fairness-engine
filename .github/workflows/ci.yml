@@ -1,0 +1,40 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: maven
+
+      - name: Start Postgres and Kafka
+        run: docker compose up -d
+
+      - name: Wait for Postgres
+        run: |
+          for i in $(seq 1 30); do
+            docker compose exec -T postgres pg_isready -U postgres && break
+            sleep 2
+          done
+
+      - name: Apply schema
+        run: docker compose exec -T postgres psql -U postgres -d adauction -f - < sql/schema.sql
+
+      - name: Build and run tests
+        run: mvn -B test
+
+      - name: Tear down services
+        if: always()
+        run: docker compose down -v
