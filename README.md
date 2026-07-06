@@ -1,5 +1,7 @@
 # ad-auction-fairness-engine
 
+![CI](https://github.com/yanastaciocubas/ad-auction-fairness-engine/actions/workflows/ci.yml/badge.svg)
+
 I studied Computer Science and Public Health at Columbia, and one of my courses (Ethical AI) assigned us Latanya Sweeney's 2013 paper showing that search engines were serving arrest record ads disproportionately to people with Black sounding names, even when those people had no criminal record. That stayed with me.
 
 Around the same time I was learning how programmatic advertising works under the hood. Real time bidding, Kafka pipelines, auction engines. And I kept thinking: if the bidding system has no fairness layer built in, discrimination does not need to be intentional. It just emerges from the optimization.
