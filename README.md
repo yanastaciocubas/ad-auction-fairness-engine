@@ -125,14 +125,15 @@ The `FairnessAuditor` runs two checks per ad category, per one-second window:
 
 **Predatory ad targeting.** For `payday-loan` and `criminal-record-search` specifically: are low-income users winning (seeing) these ads at more than 1.5x the rate of high-income users? This is the Sweeney finding, reproduced in a live system.
 
-Results come through the API:
+The API exposes 7 read-only endpoints:
 
-```
-GET /api/fairness/report
-GET /api/fairness/demographic-parity/{adCategory}
-GET /api/fairness/predatory-ad-distribution
-GET /api/fairness/flagged-advertisers
-```
+- `GET /api/fairness/report` : full fairness alert history
+- `GET /api/fairness/demographic-parity/{adCategory}` : parity breakdown for one ad category
+- `GET /api/fairness/predatory-ad-distribution` : payday-loan/criminal-record-search ad distribution by income group
+- `GET /api/fairness/flagged-advertisers` : advertisers with confirmed fairness violations
+- `GET /api/analytics/top-advertisers` : auction wins and spend by advertiser
+- `GET /api/analytics/slot/{slotName}/stats` : auction volume and average winning bid per ad slot
+- `GET /api/analytics/revenue/hourly` : hourly revenue trend
 
 ---
 
