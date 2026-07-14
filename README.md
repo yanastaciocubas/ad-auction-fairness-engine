@@ -33,7 +33,7 @@ Spring Boot API  ->  /api/fairness/report
                  ->  /api/fairness/flagged-advertisers
                  ->  /api/analytics/top-advertisers
         ↓
-Deployed on AWS EC2
+Deployed on AWS EC2 (in progress)
 ```
 
 ---
